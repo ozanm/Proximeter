@@ -42,13 +42,13 @@ window.onload = function() {
             document.getElementById('prefrence').style.animationDelay = "1.5s";
             document.getElementById('prefrence').style.animation = "show 1.5s forwards"
           }, 1500);
-        }, 3000);
+        }, 4000);
       });
     }
   }
   function getPredictHQ() {
    let get = new XMLHttpRequest()
-    get.open('GET','http://api.eventful.com/json/events/search?app_key=bd4MggXwmhL8fn3q&where=' + finalDetails[0][0] + ',' + finalDetails[0][1] + '&within=15&keywords=' + finalDetails[1])
+    get.open('GET','http://api.eventful.com/json/events/search?app_key=bd4MggXwmhL8fn3q&where=' + finalDetails[0][0] + ',' + finalDetails[0][1] + '&within=15&keywords=' + finalDetails[1],false)
     get.onreadystatechange = function() {
       if(get.readyState === 4) {
         console.log(JSON.parse(get.responseText))

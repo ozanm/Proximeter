@@ -186,4 +186,5 @@ button.finished {
   font-size: 35px;
   font-family: 'Varela Round', sans-serif;
   color: white;
+  outline: none;
 }
