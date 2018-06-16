@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round'); /* FONT IMPLEMENATION COMMAND: font-family: 'Varela Round', sans-serif;*/
 
 html {
-  background-color: darkGray;
+  background-color: Turquoise;
 }
 
 h1.title {
@@ -69,7 +69,7 @@ button.get_started {
 }
 button.get_started {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid Turquoise; /* The typwriter cursor */
+  border-right: .15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
@@ -89,7 +89,7 @@ button.get_started {
 /* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { opacity: 1; border-color: transparent }
-  50% { opacity: 1; border-color: Turquoise; }
+  50% { opacity: 1; border-color: orange; }
 }
 
 @keyframes show {
