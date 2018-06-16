@@ -81,6 +81,7 @@ window.onload = function() {
   		document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
       document.getElementById('prefrence').style.animationDelay = "0.75s";
       document.getElementById('prefrence').style.animation = "exiting 1.5s forwards";
+      finalDetails = [address, document.getElementById('prefrence').innerHTMl];
   	}
   });
 }
