@@ -77,7 +77,7 @@ button.get_started {
     typing 3.5s steps(40, end),
     show 1s forwards,
     blink-caret .75s step-end;
-  animation-delay: 5s;
+  animation-delay: 3.5s;
 }
 
 /* The typing effect */
@@ -98,9 +98,7 @@ button.get_started {
 }
 
 .exit {
-  animation-name: exitnation;
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
+  animation: exitnation 2.5s forwards;
 }
 
 @keyframes exitnation {
