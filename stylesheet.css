@@ -153,10 +153,3 @@ h4.locationClass {
     show 1s forwards,
     blink-caret .75s step-end;
 }
-
-img.loading {
-  opacity: 0;
-  position: absolute;
-  top: 70%;
-  left: 40%;
-}

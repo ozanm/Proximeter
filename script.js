@@ -28,23 +28,33 @@ window.onload = function() {
     document.getElementById('surveyTitle').innerHTML = surveyTitles[0];
     document.getElementById('surveyTitle').style.animationDelay = "3.5s";
     document.getElementById('surveyTitle').style.animation = "startSurveyTitle 2.5s forwards";
-    document.getElementById('loading').style.animationDelay = "3.5s";
-    document.getElementById('loading').style.animation = "show 1s forwards";
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         coords.lat = position.coords.latitude;
         coords.long = position.coords.longitude;
         getReverseGeocodingData(position.coords.latitude, position.coords.longitude);
-        document.getElementById('loading').style.opacity = "0";
+        setTimeout(function() {
+          document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
+          document.getElementById('location').style.animation = "exiting 1.5s forwards";
+          setTimeout(function() {
+            document.getElementById('surveyTitle').style.top = "100%";
+          }, 1500);
+        }, 3000);
       });
     }
   }
   function getPredictHQ(token) {
-   // let get = new XMLHttpRequest()
-   //  get.open('POST','https://api.predicthq.com/v1/account/?within=10km@-36.844480,174.768368')
-   //  get.setRequestHeader('Authorization', 'Bearer ' + api_key)
-    //7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC
+   let get = new XMLHttpRequest()
+    get.open('POST','https://api.predicthq.com/v1/events/?within=10km@-36.844480,174.768368')
+    get.setRequestHeader('Authorization', 'Bearer ' + api_key)
 
+response = requests.get(
+    url="https://api.predicthq.com/v1/events/",
+    headers={"Authorization": "Bearer $ACCESS_TOKEN"}
+)
+
+print(response.json())
+  // 7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC
   var phq = new Client({access_token: "7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC"})
   var find = phq.events.search({radius:'10m',latitude:cords.lat,longtiude:cords.long})
   console.log(find)
