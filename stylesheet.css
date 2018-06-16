@@ -153,3 +153,21 @@ h4.locationClass {
     show 1s forwards,
     blink-caret .75s step-end;
 }
+
+input.prefrence {
+  opacity: 0;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  font-size: 250%;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+  background-color: none;
+  border: none;
+}
+
+input.prefrence::placeholder {
+  color: lightGray;
+}

@@ -1,6 +1,4 @@
 window.onload = function() {
-  var Client = require(["predicthq"]);
-
   var surveyTitles = ["First Off... Location!"];
   var address = "";
   var prefrences = {
@@ -37,28 +35,26 @@ window.onload = function() {
           document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
           document.getElementById('location').style.animation = "exiting 1.5s forwards";
           setTimeout(function() {
+            document.getElementById('surveyTitle').innerHTML = "Tell us one of your interests, hobbies, fav places to go, etc."
             document.getElementById('surveyTitle').style.top = "0%";
             document.getElementById('surveyTitle').style.animation = "startSurveyTitle 2.5s forwards";
+            document.getElementById('prefrence').style.animationDelay = "1.5s";
+            document.getElementById('prefrence').style.animation = "show 1.5s forwards"
           }, 1500);
         }, 3000);
       });
     }
   }
   function getPredictHQ() {
-//    let get = new XMLHttpRequest()
-//     get.open('POST','https://api.predicthq.com/v1/events/?within=10km@-36.844480,174.768368')
-//     get.setRequestHeader('Authorization', 'Bearer ' + api_key)
-//
-// response = requests.get(
-//     url="https://api.predicthq.com/v1/events/",
-//     headers={"Authorization": "Bearer $ACCESS_TOKEN"}
-// )
-//
-// print(response.json())
-  // 7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC
-  var phq = new Client({access_token: "7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC"})
-  var find = phq.events.search({radius:'10m',latitude:cords.lat,longtiude:cords.long})
-  console.log(find)
+   let get = new XMLHttpRequest()
+    get.open('GET','http://api.eventful.com/rest/events/search?app_key=bd4MggXwmhL8fn3q&where=32.746682,-117.162741&within=15&keywords=books')
+    get.send()
+    get.onreadystatechange = function() {
+      if(get.readyState === 4) {
+        console.log(JSON.parse(get.responseText))
+      }
+    }
+
   }
   function getReverseGeocodingData(lat, lng) {
       var latlng = new google.maps.LatLng(lat, lng);
@@ -78,5 +74,5 @@ window.onload = function() {
           }
       });
   }
+  getPredictHQ()
 }
-getPredictHQ()
