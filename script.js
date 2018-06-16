@@ -35,9 +35,10 @@ window.onload = function() {
           document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
           document.getElementById('location').style.animation = "exiting 1.5s forwards";
           setTimeout(function() {
-            document.getElementById('surveyTitle').innerHTML = "Tell us one of your interests, hobbies, fav places to go, etc."
+            document.getElementById('surveyTitle').innerHTML = "Tell us one of your interests."
             document.getElementById('surveyTitle').style.top = "0%";
             document.getElementById('surveyTitle').style.animation = "startSurveyTitle 2.5s forwards";
+            document.getElementById('prefrence').style.top = '0%';
             document.getElementById('prefrence').style.animationDelay = "1.5s";
             document.getElementById('prefrence').style.animation = "show 1.5s forwards"
           }, 1500);
@@ -47,7 +48,7 @@ window.onload = function() {
   }
   function getPredictHQ() {
    let get = new XMLHttpRequest()
-    get.open('GET','http://api.eventful.com/rest/events/search?app_key=bd4MggXwmhL8fn3q&where=32.746682,-117.162741&within=15&keywords=books')
+    get.open('GET','http://api.eventful.com/json/events/search?app_key=bd4MggXwmhL8fn3q&where=' + finalDetails[0][0] + ',' + finalDetails[0][1] + '&within=15&keywords=' + finalDetails[1])
     get.onreadystatechange = function() {
       if(get.readyState === 4) {
         console.log(JSON.parse(get.responseText))
@@ -65,7 +66,7 @@ window.onload = function() {
               alert(status);
           }
           // This is checking to see if the Geoeode Status is OK before proceeding
-          if (status == google.maps.GeocoderStatus.OK) {
+          if (status === google.maps.GeocoderStatus.OK) {
               setTimeout(function() {
                 address = results[0].formatted_address;
                 document.getElementById('location').classList.add("locationClass");
@@ -74,14 +75,16 @@ window.onload = function() {
           }
       });
   }
-  getPredictHQ()
-  $('#prefrence').keypress(function(event) {
-    var keycode = (event.keyCode ? event.keyCode : event.which);
-  	if(keycode == '13'){
-  		document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
-      document.getElementById('prefrence').style.animationDelay = "0.75s";
-      document.getElementById('prefrence').style.animation = "exiting 1.5s forwards";
-      finalDetails = [address, document.getElementById('prefrence').innerHTMl];
-  	}
-  });
+  document.getElementById('prefrence').onkeypress = function() {
+    document.getElementById('finished').style.animation = "show 1.5s forwards";
+  }
+  document.getElementById('finished').onclick = function() {
+    document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
+    document.getElementById('prefrence').style.animationDelay = "0.75s";
+    document.getElementById('prefrence').style.animation = "exiting 1.5s forwards";
+    document.getElementById('finished').style.animationDelay = "1.5s";
+    document.getElementById('finished').style.animation = "exiting 1.5s forwards";
+    finalDetails = [[coords.lat, coords.long], document.getElementById('prefrence').value];
+    getPredictHQ()
+  }
 }
