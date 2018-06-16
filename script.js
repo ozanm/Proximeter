@@ -12,14 +12,14 @@ window.onload = function() {
     performing_arts: undefined,
     community: undefined,
   };
-  var finalDetails = undefined;
+  var finalDetails = []; // 0: address, 1: preferded prefrences
 
   var coords = {
     lat: undefined,
     long: undefined,
   }
 
-  document.getElementById('get_started').onclick = function() {
+    document.getElementById('get_started').onclick = function() {
     document.getElementById('title').style.animation = "exiting 1.5s forwards";
     document.getElementById('explanation').style.animationDelay = "2.5s";
     document.getElementById('explanation').style.animation = "exiting 1.5s forwards";
@@ -37,23 +37,24 @@ window.onload = function() {
           document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
           document.getElementById('location').style.animation = "exiting 1.5s forwards";
           setTimeout(function() {
-            document.getElementById('surveyTitle').style.top = "100%";
+            document.getElementById('surveyTitle').style.top = "0%";
+            document.getElementById('surveyTitle').style.animation = "startSurveyTitle 2.5s forwards";
           }, 1500);
         }, 3000);
       });
     }
   }
-  function getPredictHQ(token) {
-   let get = new XMLHttpRequest()
-    get.open('POST','https://api.predicthq.com/v1/events/?within=10km@-36.844480,174.768368')
-    get.setRequestHeader('Authorization', 'Bearer ' + api_key)
-
-response = requests.get(
-    url="https://api.predicthq.com/v1/events/",
-    headers={"Authorization": "Bearer $ACCESS_TOKEN"}
-)
-
-print(response.json())
+  function getPredictHQ() {
+//    let get = new XMLHttpRequest()
+//     get.open('POST','https://api.predicthq.com/v1/events/?within=10km@-36.844480,174.768368')
+//     get.setRequestHeader('Authorization', 'Bearer ' + api_key)
+//
+// response = requests.get(
+//     url="https://api.predicthq.com/v1/events/",
+//     headers={"Authorization": "Bearer $ACCESS_TOKEN"}
+// )
+//
+// print(response.json())
   // 7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC
   var phq = new Client({access_token: "7uoUm2GEVjCDqsLLEBA2GEBoeRnfSiWZTUEowVHC"})
   var find = phq.events.search({radius:'10m',latitude:cords.lat,longtiude:cords.long})
@@ -78,3 +79,4 @@ print(response.json())
       });
   }
 }
+getPredictHQ()
