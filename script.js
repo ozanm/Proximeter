@@ -47,13 +47,13 @@ window.onload = function() {
   }
   function getPredictHQ() {
    let get = new XMLHttpRequest()
-    get.open('GET','http://api.eventful.com/rest/events/search?app_key=bd4MggXwmhL8fn3q&where=32.746682,-117.162741&within=15&keywords=books','FALSE')
-    get.send()
+    get.open('GET','http://api.eventful.com/rest/events/search?app_key=bd4MggXwmhL8fn3q&where=32.746682,-117.162741&within=15&keywords=books')
     get.onreadystatechange = function() {
       if(get.readyState === 4) {
         console.log(JSON.parse(get.responseText))
       }
     }
+    get.send()
 
   }
   function getReverseGeocodingData(lat, lng) {
@@ -75,4 +75,8 @@ window.onload = function() {
       });
   }
   getPredictHQ()
+
+  document.getElementById('prefrence').onclick = function() {
+    
+  }
 }
