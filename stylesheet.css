@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round'); /* FONT IMPLEMENATION COMMAND: font-family: 'Varela Round', sans-serif;*/
 
+html {
+  background-color: darkGray;
+}
+
 h1.title {
   position: absolute;
   top: 40px;
@@ -9,6 +13,7 @@ h1.title {
   animation-name: showTitle;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+  color: white;
 }
 
 @keyframes showTitle {
@@ -40,9 +45,23 @@ h4.explanation {
   top: 195px;
   left: 60px;
   font-size: 25px;
+  color: white;
   font-family: 'Varela Round', sans-serif;
   animation-name: showExplanation;
   animation-duration: 3s;
-  animation-delay: 2.5s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
+}
+
+button.get_started {
+  position: absolute;
+  border: none;
+  outline: none;
+  background-color: Turquoise;
+  width: 275px;
+  height: 100px;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+  font-size: 25px;
+  border-radius: 100px;
 }
