@@ -75,8 +75,12 @@ window.onload = function() {
       });
   }
   getPredictHQ()
-
-  document.getElementById('prefrence').onclick = function() {
-    
-  }
+  $('#prefrence').keypress(function(event) {
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+  	if(keycode == '13'){
+  		document.getElementById('surveyTitle').style.animation = "exiting 1.5s forwards";
+      document.getElementById('prefrence').style.animationDelay = "0.75s";
+      document.getElementById('prefrence').style.animation = "exiting 1.5s forwards";
+  	}
+  });
 }

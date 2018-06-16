@@ -167,6 +167,7 @@ input.prefrence {
   color: white;
   background: none;
   border: none;
+  outline: none;
 }
 
 input.prefrence::placeholder {
