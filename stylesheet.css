@@ -2,6 +2,7 @@
 
 html {
   background-color: Turquoise;
+  outline: none;
 }
 
 h1.title {
@@ -103,5 +104,28 @@ button.get_started {
   } to {
     opacity: 0;
     top: -200px;
+  }
+}
+
+h2.surveyTitle {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  color: white;
+  font-size: 75px;
+  font-family: 'Varela Round', sans-serif;
+  width: 100%;
+  height: 225px;
+  opacity: 0;
+  top: 0%;
+}
+
+@keyframes startSurveyTitle {
+  from {
+    opacity: 0;
+    top: 0%;
+  } to {
+    opacity: 1;
+    top: 5%;
   }
 }
