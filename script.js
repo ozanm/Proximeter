@@ -1,7 +1,5 @@
 document.getElementById('get_started').onclick = function() {
-  document.getElementById('title').classList.add("exit");
-  console.log("added class");
-  setTimeout(750, function() {
-    document.getElementById('explanation').classList.add("exit");
-  });
+  document.getElementById('title').style.animation = "exiting 2.5s forwards";
+  document.getElementById('explanation').style.animationDelay = "2.5s";
+  document.getElementById('explanation').style.animation = "exiting 2.5s forwards";
 }
