@@ -12,9 +12,14 @@ document.getElementById('get_started').onclick = function() {
   document.getElementById('surveyTitle').innerHTML = surveyTitles[0];
   document.getElementById('surveyTitle').style.animationDelay = "3.5s";
   document.getElementById('surveyTitle').style.animation = "startSurveyTitle 2.5s forwards";
+  document.getElementById('loading').style.animationDelay = "3.5s";
+  document.getElementById('loading').style.animation = "show 1s forwards";
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position){
+    navigator.geolocation.getCurrentPosition(function(position) {
       getReverseGeocodingData(position.coords.latitude, position.coords.longitude);
+      setTimeout(function() {
+        document.getElementById('loading').style.opacity = "0";
+      }, 2000);
     });
   }
 }
@@ -29,7 +34,11 @@ function getReverseGeocodingData(lat, lng) {
         }
         // This is checking to see if the Geoeode Status is OK before proceeding
         if (status == google.maps.GeocoderStatus.OK) {
-            setTimeout(function() { address = results[0].formatted_address; }, 1000);
+            setTimeout(function() {
+              address = results[0].formatted_address;
+              document.getElementById('location').classList.add("locationClass");
+              document.getElementById('location').innerHTML = address
+            }, 100);
         }
     });
 }

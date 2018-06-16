@@ -114,7 +114,7 @@ h2.surveyTitle {
   color: white;
   font-size: 75px;
   font-family: 'Varela Round', sans-serif;
-  width: 100%;
+  width: 90%;
   height: 225px;
   opacity: 0;
   top: 0%;
@@ -128,4 +128,35 @@ h2.surveyTitle {
     opacity: 1;
     top: 5%;
   }
+}
+
+h4.locationClass {
+  opacity: 0;
+  position: absolute;
+  top: 45%;
+  left: 0%;
+  width: 100%;
+  height: 50px;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 35px;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 100%;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    show 1s forwards,
+    blink-caret .75s step-end;
+}
+
+img.loading {
+  opacity: 0;
+  position: absolute;
+  top: 70%;
+  left: 40%;
 }
