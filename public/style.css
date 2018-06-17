@@ -40,6 +40,17 @@ h1.title {
     left: 7%;
   }
 }
+@keyframes endExplanation {
+  from {
+    opacity: 1;
+    top: 30%;
+    left: 7%;
+  } to {
+    opacity: 0;
+    top: 35%;
+    left: 9.5%;
+  }
+}
 
 h4.explanation {
   position: absolute;
@@ -109,7 +120,7 @@ button.get_started {
 
 h2.surveyTitle {
   position: absolute;
-  top: 5%;
+  top: 0%;
   left: 10%;
   color: white;
   font-size: 75px;
@@ -117,7 +128,6 @@ h2.surveyTitle {
   width: 90%;
   height: 225px;
   opacity: 0;
-  top: 0%;
 }
 
 @keyframes startSurveyTitle {
@@ -177,14 +187,87 @@ input.prefrence::placeholder {
 button.finished {
   opacity: 0;
   position: absolute;
-  top: 90%;
+  top: 80%;
   left: 40%;
   width: 20%;
   height: 10%;
-  border: none;
-  background: none;
+  border-color: white;
+  border-radius: 75px;
+  background-color: white;
+  font-size: 50px;
+  font-family: 'Varela Round', sans-serif;
+  color: turquoise;
+  outline: none;
+}
+
+h3.location_info {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  width: 100%;
+  height: 125px;
+  text-align: center;
+  opacity: 0;
   font-size: 35px;
   font-family: 'Varela Round', sans-serif;
   color: white;
-  outline: none;
+  border: none;
+  background: none;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+}
+
+@keyframes parallax_effect_forwards {
+  0% {
+    left: -95%;
+  } 85% {
+    left: 10%;
+  } 100% {
+    left: 5%;
+  }
+}
+
+@keyframes parallax_effect_backwards {
+  0% {
+    left: 5%;
+  } 15% {
+    left: 0%;
+  } 100% {
+    left: 100%;
+  }
+}
+
+@keyframes addressInit {
+  from { top: 90%; opacity: 0; }
+  to { top: 80%; opacity: 1; }
+}
+@keyframes addressDeInit {
+  from { top: 80%; opacity: 1; }
+  to { top: 90%; opacity: 0; }
+}
+
+@keyframes homepageInit {
+  from { top: 10%; opacity: 0; }
+  to { top: 5%; opacity: 1; }
+}
+@keyframes homepageDeInit {
+  from { top: 5%; opacity: 1; }
+  to { top: 10%; opacity: 0; }
+}
+
+@keyframes backButtonInit {
+  from { top: 100%; opacity: 0; }
+  to { top: 90%; opacity: 1; }
+}
+@keyframes backButtonDeInit {
+  from { top: 90%; opacity: 1; }
+  to { top: 100%; opacity: 0; }
+}
+
+@keyframes hide {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
